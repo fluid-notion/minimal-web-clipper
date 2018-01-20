@@ -15,6 +15,12 @@
   </tr>
 </table>
 
+## Status
+
+**Alpha**
+
+Preliminary version was coded over a few hours while waiting for a delayed flight.
+
 ## TODO
 
 - [ ] Automated tests
