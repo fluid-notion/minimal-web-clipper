@@ -1,21 +1,35 @@
 # Minimal Web Clipper
 
-A dead simple chrome extension for clipping selections from web pages.
-
-It allows selection of parts of a webpage and downloads the clipped content as a standalone HTML file preserving the original look and feel as closely as possible. This file can be opened and previewed in any standard web browser.
+<table>
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/fluid-notion/minimal-web-clipper/master/src/img/icon-128.png" alt="Logo"/>
+    </td>
+    <td>
+      <strong>A dead simple :monkey_face: chrome extension for clipping selections from web pages.</strong>
+      <hr/>
+          It allows selection of parts of a webpage and downloads the clipped content as a standalone HTML file preserving the original look and feel as closely as possible.
+      <br/>
+          This file can be opened and previewed in any standard web browser.
+    </td>
+  </tr>
+</table>
 
 ## TODO
 
-[ ] Support for shadow dom.
-[ ] Support for downloading fonts.
-[ ] Support for frames and iframes.
-[ ] Annotating clips before download
-[ ] Editing and previewing clips
+- [ ] Automated tests
+- [ ] Firefox support
+- [ ] Support for shadow dom
+- [ ] Support for downloading fonts
+- [ ] Support for frames and iframes
+- [ ] Annotating clips before download
+- [ ] Editing and previewing clips
 
 ## Non-goals
 
-- Synchronization support
-- Dependency on proprietary web services
+:no_entry: Synchronization support.
+
+:no_entry: Integration with proprietary third party services.
 
 ## About Fluid Notion
 
