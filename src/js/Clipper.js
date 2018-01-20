@@ -21,6 +21,7 @@ const IGNORED_TAG_TYPES = [
 ];
 
 export const Clipper = {
+
     async clip(target) {
         if (target.length === 0) {
             return;
@@ -30,6 +31,7 @@ export const Clipper = {
         const clone = await this.visitNode(target);
         await downloadAsFile(this.buildFinalHTML(clone, selector));
     },
+
     buildFinalHTML(clone, selector) {
         return `
 <html>
@@ -40,8 +42,10 @@ export const Clipper = {
   </head>
   <body>
     ${clone.html()}
-    <hr/>
-    <div>Captured from <strong><a href="${location.href}">${location.href}</a></strong> at <strong>${new Date()}</strong> using <strong style="color: rgb(144, 67, 153)">Minimal Web Clipper</strong></div>
+    <div style="color: silver; border-top: 1px solid silver; padding: 10px 0; clear: both; margin-top: 10px; font-size: 12px; font-family: arial;">
+    Captured from <strong><a href="${location.href}">${location.href}</a></strong> at <strong>${new Date()}</strong> using
+    <a href="https://chrome.google.com/webstore/detail/minimal-web-clipper/dbhjdoppiocfognmfiaoeipkpdljefni"><strong style="color: rgb(144, 67, 153)">Minimal Web Clipper</strong></a>
+    </div>
     <!-- [MWC:Meta]
 Selector: ${selector}
     -->
@@ -49,10 +53,12 @@ Selector: ${selector}
 </html>
 `;
     },
+
     injectCSSDeclaration(prop, val) {
         const styClass = this.styles.injectDeclaration({ prop, val });
         return `mwc-${styClass}`;
     },
+
     buildFinalCSS() {
         debug('Consolidating styles');
         let cssText = '';
@@ -66,6 +72,7 @@ Selector: ${selector}
         }
         return cssText;
     },
+
     async visitNode($el) {
         if ($el.length === 0) return;
         if ($el.hasClass('ios-overlay')) return;
@@ -124,7 +131,9 @@ Selector: ${selector}
         const children = $el.contents();
         for (let idx = 0 ; idx < children.length ; idx++) {
             // Keep the browser responsive
-            await timeout(100);
+            if (idx % 10 === 0) {
+                await timeout(0);
+            }
             const el = children[idx];
             if (el.nodeType !== 1) {
                 $clone.append($(el).clone());

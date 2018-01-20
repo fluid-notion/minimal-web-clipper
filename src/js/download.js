@@ -5,19 +5,28 @@ import {timeout} from './timeout';
 
 const debug = _debug('mwc:download');
 
-export const downloadImage = (url) => {
+export const downloadImage = (url, {maxTime = 1000} = {}) => {
+    let done = false;
     return new Promise((resolve, reject) => {
         imgToURI(url, (err, uri) => {
+            if (done) return;
+            done = true;
             if (err) reject(err);
             else resolve(uri);
+        });
+        timeout(maxTime).then(() => {
+            if (!done) {
+                done = true;
+                reject(new Error('Image timeout'));
+            }
         });
     });
 };
 
-export const safeDownloadImage = async (url) => {
+export const safeDownloadImage = async (url, {maxTime = 1000}={}) => {
     debug('Downloading url:', url);
     try {
-        const dataURI = await downloadImage(url);
+        const dataURI = await downloadImage(url, {maxTime});
         debug('Fetched url:', url);
         return dataURI;
     } catch (e) {

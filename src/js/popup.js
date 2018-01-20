@@ -1,7 +1,4 @@
 import "../css/popup.css";
-// import hello from "./popup/example";
-
-// hello();
 
 const initCapture = () => {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {

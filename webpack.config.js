@@ -45,6 +45,10 @@ var options = {
                 test: /\.html$/,
                 loader: "html-loader",
                 exclude: /node_modules/
+            },
+            {
+                test: require.resolve('zepto'),
+                loader: "imports-loader?this=>window"
             }
         ]
     },
@@ -83,7 +87,10 @@ var options = {
             chunks: ["background"]
         }),
         new WriteFilePlugin()
-    ]
+    ],
+    chromeExtensionBoilerplate: {
+        notHotReload: ["content"]
+    }
 };
 
 if (env.NODE_ENV === "production") {

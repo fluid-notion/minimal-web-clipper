@@ -1,6 +1,6 @@
 {
     "name": "Minimal Web Clipper",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "options_page": "options.html",
     "background": {
         "page": "background.html"

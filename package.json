@@ -1,6 +1,11 @@
 {
   "name": "minimal-web-clipper",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "keywords": [
+    "productivity",
+    "clipper",
+    "web-clipper"
+  ],
   "description": "A minimal web clipper",
   "scripts": {
     "clean": "rm -rf build/*",
@@ -27,6 +32,7 @@
   "dependencies": {
     "debug": "^3.1.0",
     "image-to-data-uri": "^1.1.0",
+    "imports-loader": "^0.7.1",
     "ios-overlay": "^0.0.3",
     "keycode": "^2.1.9",
     "lodash.debounce": "^4.0.8",
@@ -35,6 +41,7 @@
     "selector-query": "^1.0.1",
     "spin.js": "^3.1.0",
     "styletron": "^3.0.2",
+    "velocity-animate": "^1.5.1",
     "zepto": "^1.2.0"
   }
 }

@@ -3,6 +3,8 @@ import keycode from 'keycode';
 import debounce from 'lodash.debounce';
 import overlay from 'ios-overlay';
 import _debug from 'debug';
+import animate from 'velocity-animate';
+
 import {getSpinner} from './spinner';
 import checkImg from 'ios-overlay/img/check.png';
 import {Clipper} from './Clipper';
@@ -14,13 +16,18 @@ import 'ios-overlay/style.css';
 const debug = _debug('mwc:Controller');
 
 const Controller = {
+
     nodes: {},
     isInitialized: false,
+    targetStack: [],
+    handlers: {},
+
     ensureInitialized() {
         if (!this.isInitialized) {
             this.initialize();
         }
     },
+
     initialize() {
         debug('init Version: 1');
         this.nodes.ghostBox = $('<div id="mwc-ghost-box"/>')
@@ -47,11 +54,11 @@ const Controller = {
         this.nodes.input = $('<input type="text" id="mwc-input"/>')
             .appendTo(this.nodes.inputContainer);
     },
-    targetStack: [],
-    handlers: {},
+
     currentTarget() {
         return this.targetStack[this.targetStack.length - 1];
     },
+
     focusTarget: debounce(function() {
         const target = this.currentTarget();
         if (!target) {
@@ -65,8 +72,9 @@ const Controller = {
             width: target.width() + 10
         };
         debug('Focusing on target:', target[0], style);
-        this.nodes.ghostBox.animate(style, 'fast');
+        animate(this.nodes.ghostBox[0], style, {duration: 100});
     }, 100),
+
     activate() {
         this._maxZ = getMaxZIndex();
         this.ensureInitialized();
@@ -77,15 +85,18 @@ const Controller = {
             });
         this._setupEventHandlers();
     },
+
     deactivate() {
         this.nodes.ghostBox.hide();
         this._removeEventHandlers();
         this.targetStack = [];
     },
+
     _setupEventHandlers() {
         this._setupKbdHandler();
         this._setupMouseHandler();
     },
+
     _removeEventHandlers() {
         this.nodes.input.off('blur keydown');
         $('body')
@@ -93,6 +104,7 @@ const Controller = {
             .off('click', this.handlers.mouseClick);
         this.handlers = {};
     },
+
     _setupKbdHandler() {
         this.nodes.input.focus();
         this.nodes.input.on('blur', () => {
@@ -115,6 +127,7 @@ const Controller = {
             }
         })
     },
+
     _setupMouseHandler() {
         this.handlers.mouseMove = (e) => {
             this.targetStack = [$(e.target)];
@@ -129,6 +142,7 @@ const Controller = {
             .on('mousemove', this.handlers.mouseMove)
             .on('click', this.handlers.mouseClick);
     },
+
     focusUp() {
         const target = this.currentTarget();
         if (!target || target[0].tagName.toLowerCase() === 'body') {
@@ -137,6 +151,7 @@ const Controller = {
         this.targetStack.push(target.parent());
         this.focusTarget();
     },
+
     focusDown() {
         if (this.targetStack.length <= 1) {
             return;
@@ -144,11 +159,13 @@ const Controller = {
         this.targetStack.pop();
         this.focusTarget();
     },
+
     _ensureOverlayAtTop() {
         $('.ios-overlay').css({
             zIndex: this._maxZ + 1
         });
     },
+
     async clipTarget() {
         const target = this.currentTarget();
         this.deactivate();
