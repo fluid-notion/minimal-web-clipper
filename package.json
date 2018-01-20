@@ -1,0 +1,40 @@
+{
+  "name": "minimal-web-clipper",
+  "version": "0.0.1",
+  "description": "A minimal web clipper",
+  "scripts": {
+    "clean": "rm -rf build/*",
+    "build": "node utils/build.js",
+    "copy": "cp ./src/img/icon* build",
+    "dist": "yarn run copy && yarn run build",
+    "start": "node utils/webserver.js"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.2.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.11.2",
+    "fs-extra": "^0.30.0",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "2.24.1",
+    "style-loader": "^0.13.0",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "url-loader": "^0.6.2",
+    "webpack": "2.2.1",
+    "webpack-dev-server": "^2.3.0",
+    "write-file-webpack-plugin": "3.4.2"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "image-to-data-uri": "^1.1.0",
+    "ios-overlay": "^0.0.3",
+    "keycode": "^2.1.9",
+    "lodash.debounce": "^4.0.8",
+    "promise-timeout-plus": "^0.1.1",
+    "resolve-url": "^0.2.1",
+    "selector-query": "^1.0.1",
+    "spin.js": "^3.1.0",
+    "styletron": "^3.0.2",
+    "zepto": "^1.2.0"
+  }
+}

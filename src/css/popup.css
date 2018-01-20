@@ -1,0 +1,43 @@
+.mwc-popup-body {
+    min-width: 200px;
+}
+
+.mwc-header-primary {
+    background: rgb(144, 67, 153);
+    border-radius: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 2px solid rgba(88, 42, 94);
+}
+
+.mwc-control-row {
+    text-align: center;
+    padding: 10px;
+}
+
+.mwc-control-primary {
+    display: block;
+    border-radius: 20px;
+    line-height: 30px;
+    height: 30px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 2px solid rgb(144, 67, 153);
+    padding: 0 15px;
+}
+
+.mwc-footer-row {
+    font-size: 12px;
+    color: gray;
+    text-align: left;
+    padding: 10px;
+}
+
+.mwc-footer-num {
+    font-size: 20px;
+    color: rgb(144, 67, 153);
+    font-weight: bold;
+}
