@@ -1,12 +1,12 @@
 {
   "name": "minimal-web-clipper",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "productivity",
     "clipper",
     "web-clipper"
   ],
-  "description": "A minimal web clipper",
+  "description": "A minimal bare-bones web clipper to select a section of any webpage and save it as a standalone HTML file",
   "scripts": {
     "clean": "rm -rf build/*",
     "build": "node utils/build.js",
@@ -36,11 +36,10 @@
     "ios-overlay": "^0.0.3",
     "keycode": "^2.1.9",
     "lodash.debounce": "^4.0.8",
-    "promise-timeout-plus": "^0.1.1",
     "resolve-url": "^0.2.1",
     "selector-query": "^1.0.1",
     "spin.js": "^3.1.0",
-    "styletron": "^3.0.2",
+    "styletron-core": "^3.0.2",
     "velocity-animate": "^1.5.1",
     "zepto": "^1.2.0"
   }

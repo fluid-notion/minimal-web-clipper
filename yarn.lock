@@ -2705,16 +2705,6 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
 
-promise-prototype@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/promise-prototype/-/promise-prototype-0.1.0.tgz#65c8645ea79c6fdbf873d1835a47a7427b2ef774"
-
-promise-timeout-plus@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/promise-timeout-plus/-/promise-timeout-plus-0.1.1.tgz#6e226af7e90a5ded1f7f3b24a9c2f98856e360fc"
-  dependencies:
-    promise-prototype "^0.1.0"
-
 proxy-addr@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-1.1.2.tgz#b4cc5f22610d9535824c123aef9d3cf73c40ba37"
@@ -3358,28 +3348,9 @@ style-loader@^0.13.0:
   dependencies:
     loader-utils "^0.2.7"
 
-styletron-client@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/styletron-client/-/styletron-client-3.0.2.tgz#9b2853e8b94e6e94d70166b8403f27ab2d10c514"
-  dependencies:
-    styletron-core "^3.0.2"
-
 styletron-core@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/styletron-core/-/styletron-core-3.0.2.tgz#67513feed50fb39753f72e547d00dfdb619ae79f"
-
-styletron-server@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/styletron-server/-/styletron-server-3.0.2.tgz#0b989c833ed48437d68b728f65e9406fb8802de6"
-  dependencies:
-    styletron-core "^3.0.2"
-
-styletron@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/styletron/-/styletron-3.0.2.tgz#d5422e6cbb43921918e70f8b687f56e36004f86c"
-  dependencies:
-    styletron-client "^3.0.2"
-    styletron-server "^3.0.2"
 
 supports-color@^2.0.0:
   version "2.0.0"
