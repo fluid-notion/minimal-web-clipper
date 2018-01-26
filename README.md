@@ -31,12 +31,6 @@ Preliminary version was coded over a few hours while waiting for a delayed fligh
 - [ ] Annotating clips before download
 - [ ] Editing and previewing clips
 
-## Non-goals
-
-:no_entry: Synchronization support.
-
-:no_entry: Integration with proprietary third party services.
-
 ## About Fluid Notion
 
 [Fluid Notion](https://github.com/fluid-notion) is a suite of minimal open-source productivity tools.
